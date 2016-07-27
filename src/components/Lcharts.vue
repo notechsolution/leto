@@ -6,7 +6,10 @@
   .echarts {
     width: 600px;
     height: 400px;
-    /*float: left;*/
+  }
+  div {
+    display: inline;
+    float: left;
   }
 </style>
 
