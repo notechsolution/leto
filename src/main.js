@@ -7,3 +7,5 @@ new Vue({
   el: 'body',
   components: { App,Leto }
 })
+
+require('bootstrap/dist/css/bootstrap.css')

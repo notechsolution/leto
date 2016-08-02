@@ -2,7 +2,7 @@
   <div class="echarts"></div>
 </template>
 
-<style>
+<style scoped>
   .echarts {
     width: 600px;
     height: 400px;
