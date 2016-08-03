@@ -1,5 +1,5 @@
 <template>
-  <div id="app" >
+  <div id="app" class="container-fluid">
     <chart-page :id='pageId'></chart-page>
     <!--<hello></hello>-->
   </div>
@@ -46,7 +46,6 @@ body {
 }
 
 #app a {
-  color: #42b983;
   text-decoration: none;
 }
 

@@ -8,7 +8,9 @@
     <div slot="modal-header" class="modal-header">
       <h4 class="modal-title">Configuration Page</h4>
     </div>
-      <div slot="modal-body" class="modal-body">{{configJSON}}</div>
+      <div slot="modal-body" class="modal-body row">
+        <chart-options :options='currentConfig'></chart-options>
+      </div>
   </modal>
 </template>
 <style>
@@ -18,6 +20,7 @@
     import ChartSegment from './ChartSegment.vue'
     import SampleUtils from '../utils/SampleUtils'
     import {modal} from 'vue-strap'
+    import ChartOptions from './chartOptions/ChartOptions.vue'
 
     export default{
         data(){
@@ -31,13 +34,8 @@
         },
         components:{
           ChartSegment,
-             modal
-        },
-        computed: {
-          // a computed getter
-          configJSON: function () {
-            return JSON.stringify(this.currentConfig,null,2).substring(0,1000)+'...';
-          }
+          modal,
+          ChartOptions
         },
         props:['id']
     }

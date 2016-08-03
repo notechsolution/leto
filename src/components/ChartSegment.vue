@@ -4,6 +4,7 @@
       <button type="button" class="btn btn-info navbar-btn" v-on:click='openConfiguration'>Configuration</button>
       <button type="button" class="btn btn-info navbar-btn">Data</button>
     </div>
+    <div v-show='showChartControlBar==false' style="height:50px"></div>
     <lcharts :options='options'></lcharts>
     </div>
 </template>
