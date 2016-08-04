@@ -12,14 +12,22 @@
     </ul>
   </div>
   <div class="col-md-9">
-    <span>{{currentTab}}</span>:<br/>{{configJSON}}
+   <general-option :chart-options.sync='options' option-name='general' v-show='currentTab=="general"'></general-option>
+   <title-option :chart-options.sync='options' option-name='title' v-show='currentTab=="title"'></title-option>
   </div>
 </template>
 <style>
 
 </style>
 <script>
+  import GeneralOption from './GeneralOption.vue'
+  import TitleOption from  './TitleOption.vue'
+
   export default{
+    components:{
+      GeneralOption,
+      TitleOption
+    },
     data(){
       return {
         currentTab:'general'
