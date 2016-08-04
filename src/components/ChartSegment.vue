@@ -1,19 +1,27 @@
 <template>
   <div id='{{id}}_charts' v-on:mouseover="showChartControlBar=true" v-on:mouseout="showChartControlBar=false" class="chart-segment">
     <div id='{{id}}_charts_control_bar' v-show='showChartControlBar' class="control-bar">
-      <button type="button" class="btn btn-info navbar-btn" v-on:click='openConfiguration'>Configuration</button>
-      <button type="button" class="btn btn-info navbar-btn">Data</button>
+      <button type="button" class="btn btn-default navbar-btn no-border" v-on:click='openConfiguration'>
+        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+      </button>
+
+      <button type="button" class="btn btn-default navbar-btn no-border">
+        <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+      </button>
     </div>
-    <div v-show='showChartControlBar==false' style="height:50px"></div>
+    <div v-show='showChartControlBar==false' style="height:48px"></div>
     <lcharts :options='options'></lcharts>
     </div>
 </template>
 
 <style scoped>
+  .no-border {
+    border:none;
+  }
   .control-bar {
     float:none;
     text-align: left;
-    margin-left: 10%;
+    margin-right: 5%;
   }
   .chart-segment {
     display: inline;
