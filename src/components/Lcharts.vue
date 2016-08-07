@@ -141,6 +141,12 @@
     },
     registerTheme: function (name, theme) {
       echarts.registerTheme(name, theme)
+    },
+    events :{
+      'dispose-chart': function(chartOptions){
+        this.dispose();
+        console.log('dispose chart for echarts');
+      }
     }
   }
 </script>

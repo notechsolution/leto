@@ -12,6 +12,12 @@
         <chart-options :options='currentConfig'></chart-options>
       </div>
   </modal>
+
+  <alert :show.sync="showDeletionCompleteAlert" :duration="3000" type="success" placement="top-right" dismissable>
+    <span class="icon-ok-circled alert-icon-float-left"></span>
+    <strong>Deletion Done!</strong>
+    <p>You successfully delete the chart.</p>
+  </alert>
 </template>
 <style>
 
@@ -21,6 +27,7 @@
     import SampleUtils from '../utils/SampleUtils'
     import {modal} from 'vue-strap'
     import ChartOptions from './chartOptions/ChartOptions.vue'
+    import {alert} from 'vue-strap'
 
     export default{
         data(){
@@ -29,13 +36,21 @@
               pageOptions: {},
               showConfig : false,
               showChartControlBar:false,
-              currentConfig:{}
+              currentConfig:{},
+              showDeletionCompleteAlert:false
             }
         },
         components:{
           ChartSegment,
           modal,
-          ChartOptions
+          ChartOptions,
+          alert
+        },
+        events :{
+          'remove-chart': function(chartOptions){
+            this.chartSegments.$remove(chartOptions);
+            this.showDeletionCompleteAlert = true;
+          }
         },
         props:['id']
     }
