@@ -8,7 +8,7 @@
     <div slot="modal-header" class="modal-header">
       <h4 class="modal-title">Configuration Page</h4>
     </div>
-      <div slot="modal-body" class="modal-body row">
+      <div slot="modal-body" class="modal-body body-tabs">
         <chart-options :options='currentConfig'></chart-options>
       </div>
   </modal>
@@ -20,7 +20,9 @@
   </alert>
 </template>
 <style>
-
+.body-tabs {
+  padding: 0 15px 0 15px !important;
+}
 </style>
 <script>
     import ChartSegment from './ChartSegment.vue'

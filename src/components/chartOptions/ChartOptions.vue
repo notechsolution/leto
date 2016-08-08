@@ -1,36 +1,52 @@
 <template>
-  <div class="col-md-3">
-    <ul class="nav nav-pills nav-stacked">
-      <li v-bind:class="currentTab=='general'?'active':''" v-on:click='currentTab="general"'><a href="#">General</a></li>
-      <li v-bind:class="currentTab=='title'?'active':''" v-on:click='currentTab="title"'><a href="#">Title</a></li>
-      <li v-bind:class="currentTab=='canvas'?'active':''" v-on:click='currentTab="canvas"'><a href="#">Canvas</a></li>
-      <li v-bind:class="currentTab=='xaxes'?'active':''" v-on:click='currentTab="xaxes"'><a href="#">X-Axes</a></li>
-      <li v-bind:class="currentTab=='yaxes'?'active':''" v-on:click='currentTab="yaxes"'><a href="#">Y-Axes</a></li>
-      <li v-bind:class="currentTab=='legend'?'active':''" v-on:click='currentTab="legend"'><a href="#">Legend</a></li>
-      <li v-bind:class="currentTab=='tooltip'?'active':''" v-on:click='currentTab="tooltip"'><a href="#">Tooltip</a></li>
-      <li v-bind:class="currentTab=='tools'?'active':''" v-on:click='currentTab="tools"'><a href="#">Tools</a></li>
-    </ul>
+  <div class="row bhoechie-tab-container">
+  <div class="col-md-3 bhoechie-tab-menu">
+    <div class="list-group">
+      <template v-for='tab in tabs'>
+        <a href="#"  v-bind:class="['list-group-item','text-center',currentTab==tab?'active':'']"  v-on:click='currentTab=tab'>
+          {{tab}}
+        </a>
+      </template>
+    </div>
   </div>
-  <div class="col-md-9">
-   <general-option :chart-options.sync='options' option-name='general' v-show='currentTab=="general"'></general-option>
-   <title-option :chart-options.sync='options' option-name='title' v-show='currentTab=="title"'></title-option>
+  <div class="col-md-9 bhoechie-tab">
+   <!--<general-option :chart-options.sync='options' option-name='general' v-show='currentTab=="General"'></general-option>-->
+   <!--<title-option :chart-options.sync='options' option-name='title' v-show='currentTab=="Title"'></title-option>-->
+
+    <component :is="currentTab" :chart-options.sync='options' :option-name='currentTab'>
+      <!-- component changes when vm.currentTab changes! -->
+    </component>
+
   </div>
+    </div>
 </template>
 <style>
-
+@import '../../assets/css/vertical-tab.css';
 </style>
 <script>
   import GeneralOption from './GeneralOption.vue'
   import TitleOption from  './TitleOption.vue'
+  import CanvasOption from  './CanvasOption.vue'
+  import AxesOption from  './AxesOption.vue'
+  import LegendOption from  './LegendOption.vue'
+  import TooltipOption from  './TooltipOption.vue'
+  import ToolsOption from  './ToolsOption.vue'
 
   export default{
     components:{
-      GeneralOption,
-      TitleOption
+      'General':GeneralOption,
+      'Title':TitleOption,
+      'Canvas' :CanvasOption,
+      'X-Axes':AxesOption,
+      'Y-Axes':AxesOption,
+      'Legend':LegendOption,
+      'Tooltip':TooltipOption,
+      'Tools':ToolsOption
     },
     data(){
       return {
-        currentTab:'general'
+        currentTab:'General',
+        tabs:['General','Title','Canvas','X-Axes','Y-Axes','Legend','Tooltip','Tools']
       }
     },
     computed: {

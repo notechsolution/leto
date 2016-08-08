@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <span>I am {{optionName}} configuration page</span>
+    <span>I am {{optionName}} configuration page  -- General</span>
   </div>
 </template>
 <style>

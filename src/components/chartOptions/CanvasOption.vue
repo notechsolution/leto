@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <span>I am {{optionName}} configuration page -- Title</span>
+    <span>I am {{optionName}} configuration page -- Canvas</span>
   </div>
 </template>
 <style>
