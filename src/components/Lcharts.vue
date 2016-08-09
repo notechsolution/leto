@@ -144,8 +144,10 @@
     },
     events :{
       'dispose-chart': function(chartOptions){
-        this.dispose();
-        console.log('dispose chart for echarts');
+        if(this.options.id === chartOptions.id) {
+          this.dispose();
+          console.log('dispose chart for echarts');
+        }
       }
     }
   }

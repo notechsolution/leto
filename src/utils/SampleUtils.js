@@ -258,6 +258,7 @@ var series = [];
 
 export default {
   demoChartConfigs: [{
+    id :'demo001',
     title: {
       text: '极坐标双数值轴'
     },
@@ -292,6 +293,7 @@ export default {
     animationDuration: 2000
   },
     {
+      id :'demo002',
       title: {
         text: '异步数据加载示例'
       },
@@ -310,6 +312,7 @@ export default {
       }]
     },
     {
+      id :'demo003',
       title: {
         text: 'World Population (2010)',
         subtext: 'from United Nations, Total population, both sexes combined, as of 1 July (thousands)',
@@ -540,6 +543,7 @@ export default {
     },
     {
       backgroundColor: '#404a59',
+      id :'demo004',
       title: {
         text: '模拟迁徙',
         subtext: '数据纯属有影无迹',
